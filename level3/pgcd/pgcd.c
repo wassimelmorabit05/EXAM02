@@ -1,28 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int main(int argc, char **argv)
+int	main(int ac, char **av)
 {
-    int i = 0;
-    int nbr1;
-    int nbr2;
+	int	a;
+	int	b;
+	int	tmp;
 
-    if (argc == 3)
-    {
-        nbr1 = atoi(argv[1]);
-        nbr2 = atoi(argv[2]);
-        if (nbr1 > 0 && nbr2 > 0)
-        {
-            while (nbr1 != nbr2)
-            {
-                if (nbr1 > nbr2)
-                    nbr1 = nbr1 - nbr2;
-                else
-                    nbr2 = nbr2 - nbr1;
-            }
-            printf("%d", nbr1);
-        }      
-    }
-    printf("\n");
+	if (ac == 3)
+	{
+		a = atoi(av[1]);
+		b = atoi(av[2]);
+
+		while (b != 0)
+		{
+			tmp = b;
+			b = a % b;
+			a = tmp;
+		}
+		printf("%d", a);
+	}
+	printf("\n");
+	return (0);
 }
